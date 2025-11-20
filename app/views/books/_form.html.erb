@@ -1,0 +1,72 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <div class="vintage-card" style="padding: 30px; margin-top: 20px;">
+
+    <div class="field">
+      <%= form.label :title, "Título" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :author, "Autor" %>
+      <%= form.text_field :author %>
+    </div>
+
+    <div class="field">
+      <%= form.label :editora, "Editora" %>
+      <%= form.text_field :editora %>
+    </div>
+
+    <div class="field">
+      <%= form.label :edicao, "Edição" %>
+      <%= form.text_field :edicao %>
+    </div>
+
+    <div class="field">
+      <%= form.label :ano_publicacao, "Ano de Publicação" %>
+      <%= form.number_field :ano_publicacao %>
+    </div>
+
+    <div class="field">
+      <%= form.label :paginas, "Número de Páginas" %>
+      <%= form.number_field :paginas %>
+    </div>
+
+    <div class="field">
+      <%= form.label :pais_autor, "País do Autor" %>
+      <%= form.text_field :pais_autor %>
+    </div>
+
+    <div class="field">
+      <%= form.label :genero_id, "Gênero Literário" %>
+      <%= form.collection_select :genero_id, Genero.all, :id, :nome, prompt: "Selecione" %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :status, "Status de Leitura" %>
+      <%= form.select :status, ["Lido", "Lendo", "Quero Ler"], prompt: "Selecione" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :nota, "Nota (0 a 5)" %>
+      <%= form.number_field :nota, in: 0..5 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :resenha, "Resenha" %>
+      <%= form.text_area :resenha %>
+    </div>
+
+    <div class="field">
+      <%= form.label :cover, "Capa do Livro" %>
+      <%= form.file_field :cover %>
+    </div>
+
+    <br>
+
+    <div class="actions">
+      <%= form.submit "Salvar", class: "vintage-btn" %>
+    </div>
+
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<h2 class="page-title" style="text-align:center; margin-bottom: 30px;">
+  Minha Estante
+</h2>
+
+<div class="book-grid">
+  <% @books.each do |book| %>
+    <div class="book-card">
+
+      <%# Imagem da Capa %>
+      <% if book.cover.attached? %>
+        <%= image_tag book.cover, alt: book.title %>
+      <% else %>
+        <img src="https://via.placeholder.com/200x240?text=Sem+Capa" alt="Sem capa">
+      <% end %>
+
+      <%# Título do Livro %>
+      <div class="book-card-title">
+        <%= book.title %>
+      </div>
+
+      <%# Autor %>
+      <% if book.author.present? %>
+        <div style="font-size: 14px; color: var(--text-muted);">
+          <%= book.author %>
+        </div>
+      <% end %>
+
+      <%# Botão de ver %>
+      <div style="margin-top: 10px;">
+        <%= link_to "Ver detalhes", book, class: "vintage-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<div style="text-align:center; margin-top: 20px;">
+  <%= link_to "Adicionar Livro", new_book_path, class: "vintage-btn", style: "font-size: 18px;" %>
+</div>

@@ -1,0 +1,30 @@
+<div class="vintage-card" style="padding: 40px; text-align: center; margin-top: 40px;">
+  <h2 class="page-title" style="font-size: 32px;">Bem-vinda à Minha Biblioteca</h2>
+  <p style="max-width: 600px; margin: 0 auto; font-size: 18px; line-height: 1.6;">
+    Um espaço criado para organizar, admirar e celebrar seus livros clássicos de capa dura.
+    Cada obra catalogada aqui faz parte da sua própria história literária.
+  </p>
+
+  <hr style="margin: 40px auto; width: 60%; border-color: var(--wood-dark);">
+
+  <div style="margin-top: 20px;">
+    <%= link_to "Ver meus livros", books_path, class: "vintage-btn", style: "font-size: 18px;" %>
+  </div>
+</div>
+
+<div style="margin-top: 60px; text-align: center;">
+  <h3 class="page-title">Últimos adicionados</h3>
+
+  <div class="book-grid" style="margin-top: 20px;">
+    <% @latest_books&.each do |book| %>
+      <div class="book-card">
+        <% if book.cover.attached? %>
+          <%= image_tag book.cover %>
+        <% else %>
+          <img src="https://via.placeholder.com/200x240?text=Sem+Capa">
+        <% end %>
+        <div class="book-card-title"><%= book.title %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

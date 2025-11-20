@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minha Biblioteca</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <!-- Cabeçalho Vintage -->
+    <div class="header-vintage">
+      <div class="container">
+        <h1>Minha Biblioteca</h1>
+        <nav class="vintage-menu">
+          <%= link_to "Início", root_path %>
+          <span class="divider"></span>
+
+          <%= link_to "Livros", books_path %>
+          <span class="divider"></span>
+
+          <%= link_to "Gêneros", generos_path %>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Conteúdo da página -->
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

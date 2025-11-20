@@ -1,0 +1,32 @@
+<div class="vintage-card" style="padding: 30px; max-width: 700px; margin: 30px auto;">
+
+  <% if @book.cover.attached? %>
+    <div style="text-align:center;">
+      <%= image_tag @book.cover, style: "width: 240px; border-radius: 6px;" %>
+    </div>
+  <% end %>
+
+  <h2 class="page-title" style="text-align:center; margin-top:20px;">
+    <%= @book.title %>
+  </h2>
+
+  <p><strong>Autor:</strong> <%= @book.author %></p>
+  <p><strong>Editora:</strong> <%= @book.editora %></p>
+  <p><strong>Edição:</strong> <%= @book.edicao %></p>
+  <p><strong>Ano:</strong> <%= @book.ano_publicacao %></p>
+  <p><strong>Páginas:</strong> <%= @book.paginas %></p>
+  <p><strong>País do Autor:</strong> <%= @book.pais_autor %></p>
+  <p><strong>Gênero:</strong> <%= @book.genero %></p>
+  <p><strong>Status:</strong> <%= @book.status %></p>
+  <p><strong>Nota:</strong> <%= @book.nota %>/5</p>
+
+  <% if @book.resenha.present? %>
+    <p style="margin-top:20px;"><strong>Resenha:</strong></p>
+    <p style="font-style: italic; line-height:1.5;"><%= @book.resenha %></p>
+  <% end %>
+
+  <div style="margin-top:30px; text-align:center;">
+    <%= link_to "Editar", edit_book_path(@book), class: "vintage-btn" %>
+    <%= link_to "Voltar à Estante", books_path, class: "vintage-btn" %>
+  </div>
+</div>

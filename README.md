@@ -56,7 +56,7 @@ Exemplo da paleta usada:
 ## 🚀 Executando o Projeto Localmente
 
 ```bash
-git clone https://github.com/SEUUSUARIO/minha-biblioteca-pessoal.git
+git clone https://github.com/mpmariapaula/minhabiblioteca.git
 cd minha-biblioteca-pessoal
 
 bundle install

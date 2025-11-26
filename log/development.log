@@ -1520,3 +1520,110 @@ Processing by ActiveStorage::DiskController#show as WEBP
 Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
 
 
+Started GET "/" for ::1 at 2025-11-25 22:04:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."created_at" DESC LIMIT $1[0m  [["LIMIT", 4]]
+  ↳ app/views/home/index.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Book"], ["name", "cover"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:21
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:22
+  Rendered home/index.html.erb within layouts/application (Duration: 117.7ms | GC: 9.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 215.9ms | GC: 12.0ms)
+Completed 200 OK in 303ms (Views: 207.8ms | ActiveRecord: 37.4ms (3 queries, 0 cached) | GC: 12.4ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--74f6e7427fdcef5bdfa4f15fc66389d58cb3f306/images.webp" for ::1 at 2025-11-25 22:04:01 -0300
+Processing by ActiveStorage::Blobs::RedirectController#show as WEBP
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--74f6e7427fdcef5bdfa4f15fc66389d58cb3f306", "filename"=>"images"}
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (2.3ms) [0m[34mGenerated URL for file at key: 3k3lv6v7uclo83bk6zyiggc5pdkz (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp
+Completed 302 Found in 12ms (ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp" for ::1 at 2025-11-25 22:04:01 -0300
+Processing by ActiveStorage::DiskController#show as WEBP
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"images"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for ::1 at 2025-11-25 22:04:04 -0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:6
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Book"], ["name", "cover"], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:10
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:11
+  Rendered books/index.html.erb within layouts/application (Duration: 20.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 26.0ms | ActiveRecord: 2.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp" for ::1 at 2025-11-25 22:04:04 -0300
+Processing by ActiveStorage::DiskController#show as WEBP
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"images"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-11-25 22:04:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/books" for ::1 at 2025-11-25 22:05:49 -0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:6
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Book"], ["name", "cover"], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:10
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:11
+  Rendered books/index.html.erb within layouts/application (Duration: 11.0ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | GC: 0.4ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp" for ::1 at 2025-11-25 22:05:49 -0300
+Processing by ActiveStorage::DiskController#show as WEBP
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"images"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/generos" for ::1 at 2025-11-25 22:05:50 -0300
+Processing by GenerosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering generos/index.html.erb within layouts/application
+  Rendered generos/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-11-25 22:05:53 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."created_at" DESC LIMIT $1[0m  [["LIMIT", 4]]
+  ↳ app/views/home/index.html.erb:19
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Book"], ["name", "cover"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:21
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:22
+  Rendered home/index.html.erb within layouts/application (Duration: 18.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | GC: 0.3ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 2.3ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNMnN6YkhZMmRqZDFZMnh2T0ROaWF6WjZlV2xuWjJNMWNHUnJlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWQyVmljQVk3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMM2RsWW5BR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0xMS0yNlQwMTowOTowMS43NTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--58aabdef02418dcdf0474ad443372bb45ce0fd14/images.webp" for ::1 at 2025-11-25 22:05:53 -0300
+Processing by ActiveStorage::DiskController#show as WEBP
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"images"}
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

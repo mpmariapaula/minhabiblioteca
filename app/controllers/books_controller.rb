@@ -3,8 +3,21 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
+    @generos = Genero.all
+
     @books = Book.all
+
+    if params[:query].present?
+      q = "%#{params[:query]}%"
+      @books = @books.where("title ILIKE ? OR author ILIKE ?", q, q)
+    end
+
+    if params[:genero_id].present?
+      @books = @books.where(genero_id: params[:genero_id])
+    end
   end
+
+
 
   # GET /books/1 or /books/1.json
   def show
@@ -36,16 +49,17 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: "Book was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @book.update(book_params)
+      format.html { redirect_to @book, notice: "Livro atualizado com sucesso.", status: :see_other }
+      format.json { render :show, status: :ok, location: @book }
+    else
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @book.errors, status: :unprocessable_entity }
     end
   end
+end
+
 
   # DELETE /books/1 or /books/1.json
   def destroy
@@ -65,6 +79,20 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :year, :description, :cover)
-    end
+    params.require(:book).permit(
+      :title,
+      :author,
+      :editora,
+      :edicao,
+      :ano_publicacao,
+      :paginas,
+      :pais_autor,
+      :genero_id,
+      :status,
+      :nota,
+      :resenha,
+      :cover # se tiver capa
+  )
+end
+
 end

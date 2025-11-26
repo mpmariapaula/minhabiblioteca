@@ -1,0 +1,14 @@
+<%= form_with(model: genero, local: true) do |form| %>
+
+  <div class="field" style="margin-bottom: 18px;">
+    <%= form.label :nome, "Nome do Gênero", style:"color: var(--wood-dark); font-weight: bold;" %>
+    <%= form.text_field :nome, placeholder: "Ex: Romance, Fantasia, Poesia", 
+          style:"margin-top: 6px;" %>
+  </div>
+
+  <div style="text-align:center;">
+    <%= form.submit "Salvar Gênero", class: "vintage-btn", 
+          style:"padding: 10px 20px; font-size: 16px;" %>
+  </div>
+
+<% end %>

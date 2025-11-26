@@ -1,2 +1,10 @@
 <h1>Generos#show</h1>
 <p>Find me in app/views/generos/show.html.erb</p>
+<h2 class="page-title" style="text-align:center;"><%= @genero.nome %></h2>
+
+<div class="vintage-card" style="max-width: 400px; margin: 0 auto; text-align:center;">
+  <p style="color:var(--text-muted);">Livros associados: <%= @genero.books.count %></p>
+
+  <%= link_to "Editar Gênero", edit_genero_path(@genero), class:"vintage-btn" %><br><br>
+  <%= link_to "Voltar", generos_path, class:"vintage-btn" %>
+</div>

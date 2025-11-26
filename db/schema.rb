@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_20_025631) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_26_023319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +51,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_20_025631) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ano_publicacao"
-    t.string "genero"
     t.integer "paginas"
     t.string "status"
     t.integer "nota"
@@ -59,6 +58,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_20_025631) do
     t.string "edicao"
     t.string "editora"
     t.string "pais_autor"
+    t.bigint "genero_id"
+    t.index ["genero_id"], name: "index_books_on_genero_id"
   end
 
   create_table "generos", force: :cascade do |t|
@@ -69,4 +70,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_20_025631) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "generos"
 end

@@ -1,2 +1,47 @@
-<h1>Generos#index</h1>
-<p>Find me in app/views/generos/index.html.erb</p>
+<h2 class="page-title" style="text-align:center;">
+  Gêneros Literários
+</h2>
+
+<div class="vintage-card" style="max-width: 500px; margin: 0 auto;">
+  <ul style="list-style:none; padding:0; margin:0;">
+    
+    <% @generos.each do |genero| %>
+      <li style="
+        padding:12px 0; 
+        border-bottom:1px solid var(--wood-dark); 
+        display:flex; 
+        justify-content:space-between; 
+        align-items:center;
+      ">
+
+        <!-- Nome do gênero -->
+        <span style="font-family: 'Georgia'; font-size:18px; color: var(--wood-dark);">
+          <%= genero.nome %>
+        </span>
+
+        <!-- Botões -->
+        <span style="display:flex; gap:8px;">
+          <%= link_to "Editar", 
+                edit_genero_path(genero), 
+                class: "vintage-btn", 
+                style:"padding:4px 10px; font-size:14px;" %>
+
+          <%= link_to "Excluir", 
+                genero, 
+                method: :delete, 
+                data: { confirm: "Tem certeza que deseja excluir este gênero?" }, 
+                class: "vintage-btn", 
+                style:"padding:4px 10px; font-size:14px; background-color:#7A3A3A;" %>
+        </span>
+
+      </li>
+    <% end %>
+
+  </ul>
+
+  <!-- Botão de adicionar novo gênero -->
+  <div style="text-align:center; margin-top:20px;">
+    <%= link_to "Adicionar novo gênero", new_genero_path, class: "vintage-btn" %>
+  </div>
+</div>
+

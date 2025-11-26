@@ -1,2 +1,13 @@
-<h1>Generos#new</h1>
-<p>Find me in app/views/generos/new.html.erb</p>
+<h2 class="page-title" style="text-align:center; margin-bottom: 20px;">
+  Adicionar Gênero Literário
+</h2>
+
+<div class="vintage-card" style="max-width: 420px; margin: 0 auto; padding: 25px;">
+
+  <%= render "form", genero: @genero %>
+
+  <div style="text-align:center; margin-top: 20px;">
+    <%= link_to "Voltar à lista", generos_path, class: "vintage-btn", style:"background-color: var(--wood-light);" %>
+  </div>
+
+</div>

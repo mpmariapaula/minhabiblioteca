@@ -2,39 +2,72 @@
   Minha Estante
 </h2>
 
-<div class="book-grid">
-  <% @books.each do |book| %>
-    <div class="book-card">
+<div style="text-align:right; margin-top: 20px;">
+  <%= link_to "Adicionar Livro", new_book_path, class: "vintage-btn", style: "font-size: 18px;" %>
+</div>
 
-      <%# Imagem da Capa %>
-      <% if book.cover.attached? %>
-        <%= image_tag book.cover, alt: book.title %>
-      <% else %>
-        <img src="https://via.placeholder.com/200x240?text=Sem+Capa" alt="Sem capa">
-      <% end %>
+<div class="shelf"></div>
 
-      <%# Título do Livro %>
-      <div class="book-card-title">
-        <%= book.title %>
-      </div>
 
-      <%# Autor %>
-      <% if book.author.present? %>
-        <div style="font-size: 14px; color: var(--text-muted);">
-          <%= book.author %>
-        </div>
-      <% end %>
+<div class="vintage-card" style="max-width:500px; margin:0 auto 30px auto;">
+  <%= form_with url: books_path, method: :get, local: true do |f| %>
 
-      <%# Botão de ver %>
-      <div style="margin-top: 10px;">
-        <%= link_to "Ver detalhes", book, class: "vintage-btn" %>
-      </div>
-    </div>
+    <label for="query">Buscar por título ou autor:</label>
+    <%= f.text_field :query, value: params[:query], placeholder: "Ex: Machado de Assis", style:"margin-bottom: 12px;" %>
+
+    <br>
+
+    <label for="genero_id">Filtrar por gênero:</label>
+    <%= f.collection_select :genero_id, @generos, :id, :nome, prompt: "Todos os gêneros" %>
+
+    <br><br>
+
+    <%= f.submit "Buscar", class: "vintage-btn", style:"width:100%;" %>
   <% end %>
 </div>
 
-<br>
 
-<div style="text-align:center; margin-top: 20px;">
-  <%= link_to "Adicionar Livro", new_book_path, class: "vintage-btn", style: "font-size: 18px;" %>
+<div class="book-grid">
+
+  <% @books.each_slice(4).with_index do |grupo, index| %>
+
+    <div class="shelf"></div>
+
+    <% grupo.each do |book| %>
+      <div class="book-card">
+
+        <% if book.cover.attached? %>
+          <%= image_tag book.cover, alt: book.title %>
+        <% else %>
+          <img src="https://via.placeholder.com/200x240?text=Sem+Capa" alt="Sem capa">
+        <% end %>
+
+        <div class="book-card-title">
+          <%= book.title %>
+        </div>
+
+        <% if book.author.present? %>
+          <div style="font-size: 14px; color: var(--text-muted);">
+            <%= book.author %>
+          </div>
+        <% end %>
+
+        <% if book.genero.present? %>
+          <div style="margin-top:10px; text-align:center;">
+            <span class="genre-tag">
+              <%= book.genero.nome %>
+            </span>
+          </div>
+        <% end %>
+
+
+        <div style="margin-top:10px;">
+          <%= link_to "Ver detalhes", book, class: "vintage-btn" %>
+        </div>
+
+      </div>
+    <% end %>
+
+  <% end %>
+
 </div>

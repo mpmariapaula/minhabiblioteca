@@ -66,6 +66,7 @@ a:hover {
 
 .vintage-btn:hover {
   background-color: var(--wood-light);
+  color: #3A2F2A;
 }
 
 /* Inputs (formulário) */
@@ -173,4 +174,63 @@ label {
   background-color: var(--wood-light);
   opacity: 0.6;
   border-radius: 2px;
+}
+
+/* ======== Prateleiras de Madeira ======== */
+.shelf {
+  background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
+  height: 35px;
+  border-radius: 4px;
+  margin: 30px 0 20px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+}
+
+.book-grid {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+/* Livros alinhados exatamente na prateleira */
+.book-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--wood-dark);
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px;
+  box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+  transition: transform 0.15s ease-in-out;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ======== Mini Etiquetas de Gênero ======== */
+.genre-tag {
+  display: inline-block;
+  background-color: var(--wood-light);
+  padding: 3px 10px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-family: "Georgia";
+  color: white;
+  border-radius: 12px;
+  border: 1px solid var(--wood-dark);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  opacity: 0.9;
+}
+
+.field input {
+  background-color: #F7F3ED;
+  border: 1px solid var(--wood-dark);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--wood-light);
+  box-shadow: 0 0 4px rgba(0,0,0,0.15);
 }

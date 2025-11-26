@@ -1,24 +1,89 @@
-# README
+# 📚 Minha Biblioteca Pessoal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Um sistema web desenvolvido em **Ruby on Rails** para organizar e catalogar livros pessoais, trazendo de volta o charme das bibliotecas antigas com uma estética **vintage pastel**.
+A proposta combina simplicidade tradicional com recursos modernos, criando uma experiência leve, organizada e acolhedora.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## ✨ Visão Geral
 
-* System dependencies
+**Minha Biblioteca Pessoal** permite cadastrar livros, autores, editoras e gêneros, mantendo tudo organizado como em uma biblioteca clássica.
+O sistema segue uma pegada visual inspirada em cartões de catalogação e cores suaves, perfeito para quem curte organização “das antigas”, porém com conforto digital.
 
-* Configuration
+---
 
-* Database creation
+## 🧱 Tecnologias Utilizadas
 
-* Database initialization
+* **Ruby on Rails**
+* **PostgreSQL**
+* **HTML + CSS puro**
+* **JavaScript** para interações pontuais
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🎨 Identidade Visual – Tema Vintage Pastel
 
-* Deployment instructions
+O layout usa uma paleta com tons amadeirados e cores suaves, criando uma atmosfera clássica de biblioteca.
 
-* ...
+Exemplo da paleta usada:
+
+```css
+:root {
+  --background: #F5F2E8;
+  --card-bg: #E3DCD0;
+  --accent: #A5B49E;
+  --wood-light: #C1A28A;
+  --wood-dark: #7A5C48;
+
+  --text-main: #3A2F2A;
+  --text-muted: #6D625C;
+}
+```
+
+---
+
+## 🗂️ Funcionalidades
+
+* Cadastro de livros
+* Cadastro de autores
+* Cadastro de editoras
+* Cadastro de gêneros literários
+* Listagem e visualização estilizada
+* Layout vintage, com atmosfera de biblioteca
+
+---
+
+## 🚀 Executando o Projeto Localmente
+
+```bash
+git clone https://github.com/SEUUSUARIO/minha-biblioteca-pessoal.git
+cd minha-biblioteca-pessoal
+
+bundle install
+rails db:create db:migrate
+
+rails server
+```
+
+Acesse no navegador:
+`http://localhost:3000`
+
+---
+
+## 🛠️ Problemas Conhecidos
+
+* Possível conflito com nomes reservados do Rails (como `Genero`)
+* Ajustes em rotas como `generos_path`
+* Dependência da versão correta do Ruby e bundler
+
+---
+
+## 📌 Status do Projeto
+
+Em desenvolvimento ativo.
+Novas telas, melhorias e integrações estão sendo adicionadas continuamente.
+
+
+---
+
+Se quiser, posso montar uma **versão mais curta**, ou uma **versão ultra formal**, ou até incluir **badges, GIF de preview, print da interface vintage**, o que você preferir para deixar o repositório ainda mais bonito.
